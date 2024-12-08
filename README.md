@@ -91,8 +91,28 @@ Estate-Management-System/
 
 ## Screenshots
 
+### ABOUT US
+![ABOUT US](screenshots/1.png)
+
 ### Dashboard
-![Dashboard](screenshots/1.png)
+![Dashboard](screenshots/2.png)
+
+### Admin
+![Admin](screenshots/3.png)
+
+### Admin Verification
+![Admin VerificationS](screenshots/10.png)
+
+### Request seller
+![Request seller](screenshots/11.png)
+
+### payments
+![payments](screenshots/13.png)
+
+### Booking Lands Record
+![Booking Lands Record](screenshots/14.png)
+
+
 ---
 
 ## Contributing
