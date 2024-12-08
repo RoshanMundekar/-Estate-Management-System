@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>land verification</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/colors.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/responsive.css')}}">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- owl -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar navbar-expand-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{url_for('static',filename='images/logo.png')}}" alt="logo detail">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-main">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-main">
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/adminindex">HOME</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="/verifylanddocument">VERIFY LAND DOCUMENTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/allverifiedland">ALL VERIFY LANDS</a>
+                    <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/bookinglands">BOOKING ALL LANDS</a>
+                    <li class="nav-item">
+                    
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CAROUSEL IMAGES -->
+    <section class="banner">
+        <div class="owl-carousel owl-theme carousel-sliders">
+            <div class="item" style="background-image: url(../static/images/slide1.jpg);">
+                <div class="overlay-bg cover-full"></div>
+                <div class="container">
+                    <div class="caption">
+                        <h1 class="caption-heading">The perfect place for your family</h1>
+                        <a href="#" class="btn btn-secondary">View more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(../static/images/slide2.jpg);">
+                <div class="overlay-bg cover-full"></div>
+                <div class="container">
+                    <div class="caption">
+                        <h1 class="caption-heading">The perfect place for your family</h1>
+                        <a href="#" class="btn btn-secondary">View more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(../static/images/slide3.jpg);">
+                <div class="overlay-bg cover-full"></div>
+                <div class="container">
+                    <div class="caption">
+                        <h1 class="caption-heading">The perfect place for your family</h1>
+                        <a href="#" class="btn btn-secondary">View more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="custom-nav owl-nav"></div>
+    </section>
+
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects">
+        <div class="container pt-5 pb-5">
+            <h1 class="section-title">ALL VERIFY LANDS</h1>
+
+            <!-- {% for i in result1 %}
+                <div class="row">
+
+                    <div class="col-md-4 col-6">
+                        <div class="box-image">
+                            <div class="image cover-full transition" style="background-image: url('../{{i[1]}}');">
+                            </div>
+                            <div class="shadow cover-full transition"></div>
+                            <div class="desc center">
+                                <h4>{{i[0]}}</h4>
+                                <h3 style="color:crimson;">{{i[3]}}</h3>
+                                <a href="/verifydocuments?Uname={{i[0]}}&imgname={{i[1]}}&Lprice={{i[2]}}">View more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            -->
+            <div class="row">
+
+                {% for i in result1 %}
+
+                <div class="col-lg-4 col-sm-6 mb-4" id="div">
+                    <div class="box-image">
+                        <!-- <div class="image cover-full transition" style="background-image: url('../{{i[1]}}');"> -->
+                        
+                            <div><a href="#"><img class="card-img-top" src="../{{i[1]}}" id="im" alt="" height="270px"
+                                    width="100px"></a></div>
+                        
+
+                        <div class="shadow cover-full transition"></div>
+                        <div class="desc center">
+                            <h4>{{i[0]}}</h4>
+                            <h3 style="color:crimson;">{{i[3]}}</h3>
+                            <a href="/verifydocuments?Uname={{i[0]}}&imgname={{i[1]}}&Lprice={{i[2]}}">View more</a>
+                        </div>
+
+                        <!-- <div class="card-body">
+
+
+                            <h4 class="card-title">
+                                <a href="#" id="aaa{{ n }}"></a>
+                            </h4>
+                        </div> -->
+                    </div>
+                </div>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+
+
+
+        </div>
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer footer2">
+        <div class="container pt-3 pb-2">
+            <div class="row">
+                <div class="col-md-8 foot-bottom-text">
+                    <p>Privacy Policy / LANDVERIFICATION /  © 2022 
+                        / All Rights Reserved</p>
+                </div>
+                <div class="col-md-4 social-links content-right">
+                    <a href="#" class="fb">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="tw">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="ig">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <!-- owl js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <!-- custom js -->
+    <script src="{{url_for('static',filename='js/scripts.js')}}"></script>
+</body>
+
+</html>
+
+
+<!-- <div class="row">
+
+    {% for i in result1 %}
+
+    <div class="col-lg-4 col-sm-6 mb-4" id="div">
+        <div class="card h-100">
+
+            <a href="#"><img class="card-img-top" src="../{{i[1]}}" id="im" alt="" height="270px"
+                    width="100px"></a>
+            <div id="div1{{ n }}">
+                <div id="txt{{ n }}"></div>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a href="#" id="aaa{{ n }}"></a>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+
+    {% endfor %}
+
+
+</div> -->

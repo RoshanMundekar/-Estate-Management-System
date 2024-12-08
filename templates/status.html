@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lan verification</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/colors.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/responsive.css')}}">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- owl -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+
+    <script src="{{url_for('static',filename='new/js/jquery-3.3.1.js')}}"></script>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <!-- <nav id="navbar" class="navbar navbar-expand-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{url_for('static',filename='images/logo.png')}}" alt="logo detail">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-main">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-main">
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/landproerty1">ALL LAND PROPERTIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/status">STATUS FROM SELLER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/buyersmyland">MY LANDS</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+
+
+
+
+
+
+
+    <!-- PROJECTS -->
+    <!-- <section id="projects" class="projects">
+        <div class="container pt-5 pb-5">
+            <h1 class="section-title">STATUS FROM SELLER</h1>
+            <div class="row">
+
+                {% for i in result1 %}
+
+                <div class="col-lg-4 col-sm-6 mb-4" id="div">
+                    <div class="box-image">
+                       
+                        
+                            <div><a href="#"><img class="card-img-top" src="../{{i[1]}}" id="im" alt="" height="270px"
+                                    width="100px"></a></div>
+                        
+
+                        <div class="shadow cover-full transition"></div>
+                        <div class="desc center">
+                            <h4>{{i[0]}}</h4>
+                            <h3 style="color:crimson;">{{i[3]}}</h3>
+                            <a href="/request1?Uname={{i[0]}}&imgname={{i[1]}}&Lprice={{i[2]}}&email={{i[3]}}">SEND REQUEST SELLER</a>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </section> -->
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects">
+        <div class="container pt-5 pb-5">
+            <h1 class="section-title">STATUS FROM SELLER</h1>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">SELLER NAME</th>
+                                <th scope="col">EMAIL ID</th>
+                                <th scope="col">DOCUMENT</th>
+                                <th scope="col">MAPLOCATON</th>
+                                <th scope="col">LANDPRICE</th>
+                                <th scope="col">LIKE COUNT</th>
+                                <th scope="col">LIKE</th>
+                               
+                                <th scope="col">BUTER BEST PRICE</th>
+                                <th scope="col">SEND REQUEST SELLER</th>
+                                <!-- <th scope="col">BUYER BEST PRICE</th>
+             -->
+                                <!-- <th scope="col">Actions</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in result1 %}
+
+                            <tr>
+                                <td>{{i[0]}}</td>
+                                <td>{{i[1]}}</td>
+                                <td>{{i[2]}}</td>
+                                <td><a href="{localhost:5000/{{i[9]}}}" download>Download it here <i
+                                            class="fa fa-download"></i></a></td>
+                                <td>{{i[8]}}</td>
+                                <td>{{i[14]}}</td>
+                                <td>{{i[19]}}</td>
+                                <td><a href="/like?sellerId={{i[0]}}&sellerName={{i[1]}}&projectpic={{i[9]}}&email={{i[2]}}"
+                                        class="btn btn-sucess" style="background-color: red;">Like</a> </td>
+                              
+                           
+                                <td><input  type="number" placeholder="Enter Buyer Price" id="bidvalue{{i[0]}}" name="name" />
+                                    <input id="allval{{i[0]}}" value="{{i[1]}}|{{i[9]}}|{{i[14]}}|{{i[2]}}|{{i[8]}}|{{i[18]}}" name="name"
+                                        hidden />
+                                </td>
+                                <td><a class="btn btn-sucess" style="background-color: rgb(17, 196, 17);"
+                                    id="sendreq{{i[0]}}">SEND
+                                    REQUEST</a></td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+    <script>
+
+        $(document).ready(function () {
+            $("a").click(function () {
+                var text = this.id
+                let result = text.slice(7, 8);
+
+                var val1 = document.getElementById("allval" + result).value;
+                var val2 = document.getElementById("bidvalue" + result).value;
+
+                var data = { a: val1, b: val2 };
+                $.ajax({
+                    type: "POST",
+                    url: "request1",
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        if (data == "success") {
+                            window.location.replace("/index");
+                        }
+                       
+                    },
+                    error: function (e) {
+                        console.log("ERROR : ", e);
+                    }
+                });
+            })
+        });
+    </script>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer footer2">
+        <div class="container pt-3 pb-2">
+            <div class="row">
+                <div class="col-md-8 foot-bottom-text">
+                    <p>Privacy Policy / LANDVERIFICATION / © 2022
+                        / All Rights Reserved</p>
+                </div>
+                <div class="col-md-4 social-links content-right">
+                    <a href="#" class="fb">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="tw">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="ig">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <!-- owl js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <!-- custom js -->
+    <script src="{{url_for('static',filename='js/scripts.js')}}"></script>
+</body>
+
+</html>

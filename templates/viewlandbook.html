@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website School</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/colors.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/responsive.css')}}">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- owl -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+    <!-- WELCOME CONTENT -->
+    <section id="about" class="about">
+        {% for i in result2 %}
+        <div class="container pt-5 pb-5">
+            <h1 class="section-title">SELLER NAME </h1>
+            <h4 class="section-title">{{i[1]}}</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-content">
+
+                        <img class="w-100 p-3" src="http://localhost:5000/{{i[9]}}" alt="School about">
+                    </div>
+
+
+                </div>
+                <div class="col-md-6">
+                    <div class="about-content">
+                        <ul>
+                            <li>
+                                <i class="fas fa-trophy"></i>
+                                <h4>LANDPRICE</h4>
+                                <p>{{i[14]}}</p>
+                            </li>
+                            <li>
+                                <i class="fas fa-bullhorn"></i>
+                                <h4>LOCATION</h4>
+                                <p>{{i[8]}}</p>
+                            </li>
+                            <li>
+                                <i class="fas fa-user-shield"></i>
+                                <h4>ADDRESS</h4>
+                                <p>{{i[11]}},{{i[12]}},{{i[13]}}</p>
+                               
+                            </li>
+                            <li>
+                                <i class="fas fa-id-card-alt"></i>
+                                <h4>UID</h4>
+                                <p>{{i[4]}}</p>
+                            </li>
+                            <li>
+                                <i class="fas fa-id-card-alt"></i>
+                                <h4>SERVAY-NO,WARD_NO,PLOT_NO</h4>
+                                <p>{{i[5]}},{{i[6]}},{{i[7]}}</p>
+                                
+                            </li>
+                            <li>
+                                <i class="fas fa-id-card-alt"></i>
+                                <h4>PHONE NO</h4>
+                                <p>{{i[3]}}</p>
+                                
+                            </li>
+                        </ul>
+
+                        <div>
+                            <a href="/bookingpage?landprise={{i[14]}}&uname={{i[1]}}&uid={{i[4]}}"><button
+                                    id="alert-trigger" >BOOK</button></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+       
+    </section>
+
+
+
+
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer footer2">
+        <div class="container pt-3 pb-2">
+            <div class="row">
+                <div class="col-md-8 foot-bottom-text">
+                    <p>Privacy Policy / LANDVERIFICATION /  © 2022 
+
+                        / All Rights Reserved</p>
+                </div>
+                <div class="col-md-4 social-links content-right">
+                    <a href="#" class="fb">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="tw">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="ig">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script>
+
+
+        const btn = document.getElementById("alert-trigger");
+        const box = document.getElementById("example");
+
+        btn.addEventListener("click", function () {
+            box.style.opacity = 1;
+            setTimeout(function () { box.style.opacity = 0 }, 1000);
+        });
+
+    </script>
+
+
+    <style>
+        #alert-trigger {
+            background-color: green;
+            padding: 5px;
+            color: #FFF;
+        }
+
+        #example {
+            background-color: grey;
+            padding: 10px;
+            margin: 10px 0px;
+            opacity: 0;
+            /* initial opacity value set to 0 */
+            transition: all 1s;
+            /* will fade the element instead of hiding/showing the element instantly */
+        }
+    </style>
+
+
+    <!-- JAVASCRIPT -->
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <!-- owl js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <!-- custom js -->
+    <script src="{{url_for('static',filename='js/scripts.js')}}"></script>
+</body>
+
+</html>
